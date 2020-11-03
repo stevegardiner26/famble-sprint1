@@ -23,13 +23,16 @@
   },
   "homepage": "https://github.com/NJIT-CS490/project3-famble#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
     "react-scripts": "^4.0.0",
+    "redux": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
