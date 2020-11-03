@@ -11,12 +11,9 @@ import { login } from './store/slices/userSlice.js';
 
 // Checking if the user has been signed in already on this computer
 if (localStorage.user_id) {
-  store.dispatch(login({name: "Steve"}))
-  /*userService.getCurrentUser().then((response) => {
-    console.log("Checked User")
-    console.log(response)
-    
-  })*/
+  userService.getCurrentUser().then((response) => {
+    store.dispatch(login(response))
+  })
 }
 
 
