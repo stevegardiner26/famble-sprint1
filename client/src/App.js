@@ -16,7 +16,6 @@ function App() {
 
   const getGames = async () => {
     let res = await gameService.getAll();
-    console.log(res);
     setGames(res);
   }
 
