@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import userService from './services/userService';
+import { login } from './store/slices/userSlice.js';
+
+// Checking if the user has been signed in already on this computer
+if (localStorage.user_id) {
+  store.dispatch(login({name: "Steve"}))
+  /*userService.getCurrentUser().then((response) => {
+    console.log("Checked User")
+    console.log(response)
+    
+  })*/
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
