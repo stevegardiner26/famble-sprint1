@@ -1,10 +1,34 @@
-# Getting Started with Create React App
+# Famble
+
+A gambling app without real money. Curing one gambling addiction at a time.
+
+## Development Setup
+
+1. Clone the repository and cd into it.
+1. Make sure you have node version 12 or greater installed.
+
+### Frontend (Client)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+In a seperate terminal window execute the following:
 
-In the project directory, you can run:
+    $ cd client
+    $ npm install
+    $ npm start
+
+### Backend (Server)
+
+Currently the backend is configured to run on `localhost:3003`. 
+This is important to note because this url will be referenced in the frontend code.
+
+In another terminal window execute the following:
+
+    $ cd server
+    $ npm install
+    $ npm start
+
+## Frontend Auto-Generated ReadMe Text
 
 ### `yarn start`
 
@@ -45,18 +69,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
@@ -64,7 +76,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
