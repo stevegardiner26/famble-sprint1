@@ -8,7 +8,7 @@ import GoogleLogin from 'react-google-login';
 // SERVICES
 import gameService from './services/gameService';
 import userService from './services/userService';
-import { selectUser, login } from "./store/slices/userSlice";
+import { selectUser, login, logout } from "./store/slices/userSlice";
 import { useDispatch } from 'react-redux';
 
 function App() {
@@ -24,7 +24,6 @@ function App() {
   })
 
   const responseGoogle = async (response) => {
-    console.log(response);
     let payload = {
       name: response.profileObj.name,
       profile_image: response.profileObj.imageUrl,
@@ -34,6 +33,10 @@ function App() {
     let res = await userService.signIn(payload);
     dispatch(login(res.user))
   }
+
+  const handleLogout = () => {
+    dispatch(logout())
+  };
 
   const getGames = async () => {
     let res = await gameService.getAll();
@@ -52,11 +55,12 @@ function App() {
   return (
     <div className="App">
       {!user.name &&
-      <GoogleLogin
-        clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
-        buttonText="Sign In"
-        onSuccess={responseGoogle}
-      />}
+        <GoogleLogin
+          clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
+          buttonText="Sign In"
+          onSuccess={responseGoogle}
+        />
+      }
       <span>Name: {user.name}</span>
       <ul className="list">
         {(games && games.length > 0) ? (
@@ -65,6 +69,9 @@ function App() {
           <p>No games found</p>
         )}
       </ul>
+      {user.name && 
+        <button onClick={handleLogout}>Logout</button>
+      }
     </div>
   );
 }
