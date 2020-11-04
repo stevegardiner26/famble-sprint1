@@ -11,12 +11,21 @@ export const userSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
     login: (state, action) => {
+        if (!localStorage.getItem("user_id")) {
+            localStorage.setItem("user_id", action.payload['_id'].toString());
+        }
         state.current_user = action.payload;
     },
+    logout: (state, action) => {
+      if (localStorage.getItem("user_id")) {
+        localStorage.removeItem("user_id");
+      }
+      state.current_user = {}
+    }
   },
 });
 
-export const { login } = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
