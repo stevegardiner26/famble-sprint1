@@ -11,8 +11,10 @@ module.exports = (app) => {
 
   // Create
   app.post(`/api/users`, async (req, res) => {
-    // TODO: Potentially need to check if a user exists first before creating a new one (Use of google id here) (Still return the id)
-    let user = await User.create(req.body);
+    let user = await User.findOne({google_id: req.body.google_id});
+    if (!user) {
+        user = await User.create(req.body);
+    }
     return res.status(201).send({
       error: false,
       user
