@@ -11,6 +11,9 @@ export const userSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
     login: (state, action) => {
+        if (!localStorage.getItem("user_id")) {
+            localStorage.setItem("user_id", action.payload['_id'].toString());
+        }
         state.current_user = action.payload;
     },
   },
