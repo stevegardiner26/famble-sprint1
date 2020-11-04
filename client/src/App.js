@@ -1,11 +1,14 @@
 // /client/src/App.js
 
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // SERVICES
 import gameService from './services/gameService';
+import { selectUser } from "./store/slices/userSlice";
 
 function App() {
+  const user = useSelector(selectUser);
   const [games, setGames] = useState(null);
 
   useEffect(() => {
@@ -16,7 +19,6 @@ function App() {
 
   const getGames = async () => {
     let res = await gameService.getAll();
-    console.log(res);
     setGames(res);
   }
 
@@ -31,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <span>Name: {user.name}</span>
       <ul className="list">
         {(games && games.length > 0) ? (
           games.map(game => renderGame(game))
