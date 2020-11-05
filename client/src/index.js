@@ -13,8 +13,8 @@ import { login } from './store/slices/userSlice.js';
 if (localStorage.user_id) {
   userService.getCurrentUser().then((response) => {
     // TODO: If the response comes back bad we should remove the localStorage val and redirect the user to sign in again
-    store.dispatch(login(response))
-  })
+    store.dispatch(login(response));
+  });
 }
 
 ReactDOM.render(
@@ -23,7 +23,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
