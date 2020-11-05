@@ -45,5 +45,8 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "nodemon": "^2.0.6"
+  },
+  "nodemonConfig": {
+    "ext": "js, jsx"
   }
 }
