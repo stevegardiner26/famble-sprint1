@@ -3,13 +3,10 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
+  BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
+import Home from './home/home';
 import Login from './login/login';
-import Home from './home';
 
 function App() {
   return (
