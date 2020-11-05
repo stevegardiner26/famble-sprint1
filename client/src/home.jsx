@@ -8,9 +8,9 @@ import gameService from './services/gameService';
 import userService from './services/userService';
 import { selectUser, login, logout } from './store/slices/userSlice';
 
-function Home(props){
-    const user = useSelector(selectUser);
-    const [games, setGames] = useState(null);
+function Home(props) {
+  const user = useSelector(selectUser);
+  const [games, setGames] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -47,28 +47,28 @@ function Home(props){
     </li>
   );
 
-  return(
+  return (
     <div className="App">
-        {!user.name
+      {!user.name
         && (
         <GoogleLogin
-            clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
-            buttonText="Sign In"
-            onSuccess={responseGoogle}
+          clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
+          buttonText="Sign In"
+          onSuccess={responseGoogle}
         />
         )}
-        <span>
+      <span>
         Name:
         {user.name}
-        </span>
-        <ul className="list">
+      </span>
+      <ul className="list">
         {(games && games.length > 0) ? (
-            games.map((game) => renderGame(game))
+          games.map((game) => renderGame(game))
         ) : (
-            <p>No games found</p>
+          <p>No games found</p>
         )}
-        </ul>
-        {user.name
+      </ul>
+      {user.name
         && <button type="button" onClick={handleLogout}>Logout</button>}
     </div>
   );
