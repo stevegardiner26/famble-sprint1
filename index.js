@@ -9,13 +9,14 @@ require('./models/User');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/node-react-starter');
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/node-react-starter`, {useNewUrlParser: true, useUnifiedTopology: true}, function () {
+    console.log("Connected to MongoDB");
+});
 
 app.use(bodyParser.json());
 
 // IMPORT ROUTES
 require('./routes/gameRoutes')(app);
-require('./routes/userRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
