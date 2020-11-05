@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 // /client/src/App.js
 
 import React, { useState, useEffect } from 'react';
@@ -42,7 +43,7 @@ function App() {
   };
 
   const renderGame = (game) => (
-    <li key={game.id} className="list__item game">
+    <li key={game._id} className="list__item game">
       <h3 className="game__name">{game.name}</h3>
       <p className="game__description">{game.description}</p>
     </li>

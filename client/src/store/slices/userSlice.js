@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, no-param-reassign */
+/* eslint-disable no-unused-vars, no-param-reassign, no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
     // immutable state based off those changes
     login: (state, action) => {
       if (!localStorage.getItem('user_id')) {
-        localStorage.setItem('user_id', action.payload.id.toString());
+        localStorage.setItem('user_id', action.payload._id.toString());
       }
       state.current_user = action.payload;
     },
