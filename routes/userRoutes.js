@@ -11,7 +11,7 @@ module.exports = (app) => {
 
   // Create
   app.post(`/api/users`, async (req, res) => {
-    let user = await User.findOne({google_id: req.body.google_id});
+    let user = await User.findOne({email: req.body.email});
     if (!user) {
         user = await User.create(req.body);
     }
