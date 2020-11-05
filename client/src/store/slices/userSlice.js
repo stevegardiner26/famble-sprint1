@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
