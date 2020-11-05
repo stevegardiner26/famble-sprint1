@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     // immutable state based off those changes
     login: (state, action) => {
       if (!localStorage.getItem('user_id')) {
-        localStorage.setItem('user_id', action.payload._id.toString());
+        localStorage.setItem('user_id', action.payload.id.toString());
       }
       state.current_user = action.payload;
     },
