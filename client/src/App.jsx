@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-// /client/src/App.js
+// /client/src/App.jsx
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
