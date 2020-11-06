@@ -5,9 +5,8 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
-import Dashboard from './dashboard/dashboard';
-import Home from './home/home';
-import Login from './login/login';
+import Dashboard from './dashboard/Dashboard';
+import Home from './home/Home';
 
 function App() {
   return (
@@ -17,12 +16,8 @@ function App() {
           {/* {loggedIn ? <Redirect to="/dashboard" /> : <Home />}  */}
           <Home />
         </Route>
-        <Route exact path="/login">
-          {/* {loggedIn ? <Redirect to="/dashboard" /> : <Login />}  */}
-          <Login />
-        </Route>
         <Route exact path="/dashboard">
-          {/* {!loggedIn ? <Redirect to="/login" /> : <Dashboard />}  */}
+          {/* {!loggedIn ? <Redirect to="/" /> : <Dashboard />}  */}
           <Dashboard />
         </Route>
       </Switch>
