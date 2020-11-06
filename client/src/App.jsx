@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
+import Dashboard from './dashboard/dashboard';
 import Home from './home/home';
 import Login from './login/login';
 
@@ -17,10 +18,12 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/login">
+          {/* {loggedIn ? <Redirect to="/dashboard" /> : <Login />}  */}
           <Login />
         </Route>
         <Route exact path="/dashboard">
           {/* {!loggedIn ? <Redirect to="/login" /> : <Dashboard />}  */}
+          <Dashboard />
         </Route>
       </Switch>
     </Router>
