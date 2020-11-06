@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
-// import Dashboard from './dashboard/Dashboard';
+import Dashboard from './dashboard/Dashboard';
 import Home from './home/Home';
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
           {/* {loggedIn ? <Redirect to="/dashboard" /> : <Home />}  */}
           <Home />
         </Route>
-        {/* <Route exact path="/dashboard"> */}
+        <Route exact path="/dashboard">
           {/* {!loggedIn ? <Redirect to="/" /> : <Dashboard />}  */}
-          {/* <Dashboard /> */}
-        {/* </Route> */}
+          <Dashboard />
+        </Route>
       </Switch>
     </Router>
   );
