@@ -1,10 +1,16 @@
-/* eslint-disable no-underscore-dangle, no-unused-vars */
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import {
+  Link, Route,
+} from 'react-router-dom';
 
 function Home(props) {
   return (
     <div>
-      Landing Page
+      Welcome to the landing page!
+      <Link to="/login">
+        <button type="button">Login</button>
+      </Link>
     </div>
   );
 }
