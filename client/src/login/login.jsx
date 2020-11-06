@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle, no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 
@@ -11,6 +12,7 @@ import { selectUser, login, logout } from '../store/slices/userSlice';
 function Login(props) {
   const user = useSelector(selectUser);
   const [games, setGames] = useState(null);
+  const [sendToDash, setSendToDash] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -34,6 +36,7 @@ function Login(props) {
     };
     const res = await userService.signIn(payload);
     dispatch(login(res.user));
+    setSendToDash(<Redirect to="/dashboard" />);
   };
 
   const handleLogout = () => {
@@ -49,6 +52,7 @@ function Login(props) {
 
   return (
     <div className="App">
+      {sendToDash}
       {!user.name
         && (
         <GoogleLogin
