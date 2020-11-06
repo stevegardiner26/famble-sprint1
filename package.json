@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/NJIT-CS490/project3-famble#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
