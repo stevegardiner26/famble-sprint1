@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// eslint-disable-next-line
 export default {
   getCurrentUser: async () => {
     const res = await axios.get(`/api/users/${localStorage.user_id}`);
