@@ -6,6 +6,16 @@ const betSchema = new Schema({
     game_id: String,
     team_id: String,
     amount: Schema.Types.Decimal128,
+    timestamp: {
+        created_at: {
+            type: Date,
+            default: ()=> new Date().toISOString()
+        },
+        updated_at: {
+            type: Date,
+            default: ()=> new Date().toISOString()
+        },
+    },
 })
 
 mongoose.model('bets', betSchema);
