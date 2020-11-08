@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
+<<<<<<< HEAD
     name: String,
     email: { type: String, unique: true },
     profile_image: String,
@@ -17,5 +19,12 @@ const userSchema = new Schema({
         },
     },
 })
+=======
+  name: String,
+  email: String,
+  profile_image: String,
+  google_id: { type: String, unique: true },
+});
+>>>>>>> master
 
 mongoose.model('users', userSchema);

@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+
+const { Schema } = mongoose;
 
 const gameSchema = new Schema({
+<<<<<<< HEAD
     name: String,
     description: String,
     sport_type: String,
@@ -24,5 +26,10 @@ const gameSchema = new Schema({
         },
     },
 })
+=======
+  name: String,
+  description: String,
+});
+>>>>>>> master
 
 mongoose.model('games', gameSchema);

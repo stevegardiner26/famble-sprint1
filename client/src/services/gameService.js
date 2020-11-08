@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+// eslint-disable-next-line
 export default {
   getAll: async () => {
-    let res = await axios.get(`/api/games`);
+    const res = await axios.get('/api/games');
     return res.data || [];
-  }
-}
+  },
+};
