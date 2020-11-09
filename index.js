@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 // IMPORT MODELS
 require('./models/Game');
 require('./models/User');
+require('./models/Bet');
+require('./models/Team');
 
 const app = express();
 
