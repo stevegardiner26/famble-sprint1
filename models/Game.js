@@ -6,10 +6,7 @@ const gameSchema = new Schema({
     name: String,
     description: String,
     sport_type: String,
-    start_time: {
-        type: Date,
-        default: ()=> new Date().toISOString()
-    },
+    start_time: Date,
     winner: String,
     team_one_id: String,
     team_two_id: String,
