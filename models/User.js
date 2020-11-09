@@ -7,9 +7,8 @@ const userSchema = new Schema({
     email: { type: String, unique: true },
     profile_image: String,
     google_id: String,
-    shreddit_balance: {type: Number, default: 10000},
-    timestamps: true,
-})
+    shreddit_balance: {type: Number, default: 10000}
+}, {timestamps: true})
 
 
 mongoose.model('users', userSchema);

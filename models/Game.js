@@ -9,8 +9,7 @@ const gameSchema = new Schema({
     start_time: Date,
     winner: String,
     team_one_id: String,
-    team_two_id: String,
-    timestamps: true,
-})
+    team_two_id: String
+}, {timestamps: true})
 
 mongoose.model('games', gameSchema);
