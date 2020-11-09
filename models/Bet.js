@@ -5,7 +5,7 @@ const betSchema = new Schema({
     user_id: String,
     game_id: String,
     team_id: String,
-    amount: Schema.Types.Decimal128,
+    amount: Number,
     timestamp: {
         created_at: {
             type: Date,
