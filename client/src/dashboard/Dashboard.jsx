@@ -2,6 +2,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 // import gameService from '../services/gameService';
 
 function Dashboard(props) {
@@ -45,10 +48,14 @@ function Dashboard(props) {
       // </ul> */}
 
   return (
-    <div>
-      Welcome to the dashboard page!
-      <button type="button" onClick={handleLogout}>Logout</button>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+        
+        </Typography>
+      </Container>
+    </React.Fragment>
   );
 }
 
