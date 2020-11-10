@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
+// import gameService from '../services/gameService';
 
 function Dashboard(props) {
   const user = useSelector(selectUser);

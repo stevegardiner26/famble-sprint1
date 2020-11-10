@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 
 // SERVICES
-// import gameService from '../services/gameService';
 import userService from '../services/userService';
 import { selectUser, login } from '../store/slices/userSlice';
 
