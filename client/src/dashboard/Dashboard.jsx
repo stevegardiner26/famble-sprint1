@@ -14,10 +14,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import GoogleLogout from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 // import gameService from '../services/gameService';
 const CLIENT_ID="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
-          
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth:650,
@@ -28,9 +27,9 @@ function createData(name, time, description, score, started, id) {
 }
 
 const games = [
-  createData('Cardinals vs Rams', '11/20/20', 'PlaceHolder Text', '0-0', 'No',1),
-  createData('Bengals vs Giants', '11/10/20', 'PlaceHolder Text', 'Not Yet Determined', 'Yes',2),
-  createData('Other game', '11/10/20', 'PlaceHolder Text', 'Not Yet Determined', 'Yes',3),
+  createData('Cardinals vs Rams', '11/20/20', 'Placeholder Text', '0-0', 'No',1),
+  createData('Bengals vs Giants', '11/10/20', 'Placeholder Text', 'Not Yet Determined', 'Yes',2),
+  createData('Other game', '11/10/20', 'Placeholder Text', 'Not Yet Determined', 'Yes',3),
 
 ];
 function Dashboard(props) {
@@ -80,23 +79,24 @@ function Dashboard(props) {
       <CssBaseline />
       <Container maxWidth="md">
         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
-          <p>{user.name}</p>
+          <img src = { user.profile_image }></img>
+          <br/>
           <GoogleLogout
-            clientId={ CLIENT_ID }
-            buttonText='Logout'
-            onLogoutSuccess={ handleLogout }
-          >
-          </GoogleLogout>
+          clientId={ CLIENT_ID }
+          buttonText='Logout'
+          onLogoutSuccess={ handleLogout }
+          />
+          <br/>
           <TableContainer component={Paper}>
           <Table className = {classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="center">Game</TableCell>
-              <TableCell align="right">Date/Time</TableCell>
-              <TableCell align="right">Description</TableCell>
-              <TableCell align="right">Final Score</TableCell>
-              <TableCell align="right">Started?</TableCell>
-              <TableCell align="right">Bet link</TableCell>
+              <TableCell align="center">Date/Time</TableCell>
+              <TableCell align="center">Description</TableCell>
+              <TableCell align="center">Final Score</TableCell>
+              <TableCell align="center">Started?</TableCell>
+              <TableCell align="center">Bet link</TableCell>
               
             </TableRow>
           </TableHead>
@@ -104,11 +104,11 @@ function Dashboard(props) {
               {games.map((row)=>(
                 <TableRow key = {row.id}>
                   <TableCell align = "center"> {row.name}</TableCell>
-                  <TableCell align = "right">{row.time}</TableCell>
-                  <TableCell align = "right">{row.description}</TableCell>
-                  <TableCell align = "right">{row.score}</TableCell>
-                  <TableCell align = "right">{row.started}</TableCell>
-                  <TableCell align = "right"><Button variant="contained" color="primary" disableElevation>Place Bet!</Button></TableCell>
+                  <TableCell align = "center">{row.time}</TableCell>
+                  <TableCell align = "center">{row.description}</TableCell>
+                  <TableCell align = "center">{row.score}</TableCell>
+                  <TableCell align = "center">{row.started}</TableCell>
+                  <TableCell align = "center"><Button variant="contained" color="primary" disableElevation>Place Bet!</Button></TableCell>
                 </TableRow>
               ))}
             </TableBody>
