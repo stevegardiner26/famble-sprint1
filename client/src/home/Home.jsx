@@ -37,7 +37,10 @@ function Home(props) {
           />
         </p>
       </Jumbotron>
-      <InfoCard title="About" content="Contewnt" image="https://via.placeholder.com/250" />
+      <InfoCard img_side="left" title="Features" content="What you made and what it does" image="https://via.placeholder.com/250" />
+      <InfoCard title="Our Mission" content="Why you’ve made it and why it matters" image="https://via.placeholder.com/250" />
+      <InfoCard img_side="left" title="Our Team" content="Who you (collectively) are" image="https://via.placeholder.com/250" />
+      <InfoCard title="Development" content="How you made it and what technologies were used" image="https://via.placeholder.com/250" />
       {/* Who you (collectively) are
           What you made and what it does
           How you made it and what technologies were used

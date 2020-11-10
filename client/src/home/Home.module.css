@@ -30,6 +30,16 @@
     display: flex;
     flex-wrap: wrap;
     color: white;
+    margin-bottom: 40px;
+}
+.mobile_card{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    display: none;
+    margin-bottom: 40px;
 }
 .card_img{
     width: 50%;
@@ -60,5 +70,11 @@
     }
     .card_content{
         width: 100%;
+    }
+    .card{
+        display: none;
+    }
+    .mobile_card{
+        display: flex;
     }
 }
