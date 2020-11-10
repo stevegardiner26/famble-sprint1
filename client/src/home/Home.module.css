@@ -1,0 +1,25 @@
+.jumbo{
+    border-radius: 0px;
+    background-image: url('./jumbotron.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    text-align: center; 
+    color: #fff;
+}
+
+.display_text {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    backdrop-filter: blur(3px); 
+}
+
+.display_subtext {
+    font-size: 1.25rem;
+    font-weight: 300;
+    backdrop-filter: blur(3px); 
+}
+.google{
+    backdrop-filter: blur(3px);
+}

@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-
+import { Jumbotron } from 'reactstrap';
+import styles from './Home.module.css';
 // SERVICES
 import userService from '../services/userService';
 import { selectUser, login } from '../store/slices/userSlice';
+
 
 function Home(props) {
   const user = useSelector(selectUser);
@@ -23,11 +25,19 @@ function Home(props) {
 
   return (
     <div>
-      <GoogleLogin
-          clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
-          buttonText="Sign In"
-          onSuccess={responseGoogle}
-      />
+      <Jumbotron className={styles.jumbo}>
+        <h1 className={styles.display_text}>Welcome to Famble!</h1>
+        <p className={styles.display_subtext}>Sports betting without the cost.</p>
+        <p>
+          <GoogleLogin className={styles.google}
+            clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
+            buttonText="Sign In"
+            onSuccess={responseGoogle}
+          />
+        </p>
+      </Jumbotron>
+
+
     </div>
   );
 }
