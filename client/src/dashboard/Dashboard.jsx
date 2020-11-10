@@ -97,9 +97,11 @@ function Dashboard(props) {
           </TableHead>
           <TableBody>
             {games.map((row)=>(
-              <TableRow key = {row._id}>
+              <TableRow key = {row.id}>
                 <TableCell align = "right"> {row.name}</TableCell>
                 <TableCell align = "right">{row.description}</TableCell>
+                <TableCell align = "right">{row.score}</TableCell>
+                <TableCell align = "right">{row.started}</TableCell>
                 <TableCell align = "right"><Button/></TableCell>
               </TableRow>
             ))}
