@@ -27,10 +27,12 @@ function Home(props) {
     setSendToDash(<Redirect to="/dashboard" />);
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-  // Code for getting the games
+  // Code to Handle Logout
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  // };
+  
+  // Code for getting the games -----------------
   // const [games, setGames] = useState(null);
   // const getGames = async () => {
   //   const res = await gameService.getAll();
@@ -49,22 +51,17 @@ function Home(props) {
   //     <p className="game__description">{game.description}</p>
   //   </li>
   // );
+  // -------------------
 
   return (
     <div>
       {sendToDash}
-      {!user.name
-        && (
-        <GoogleLogin
+      <GoogleLogin
           clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
           buttonText="Sign In"
           onSuccess={responseGoogle}
-        />
-        )}
-      <span>
-        Name:
-        {user.name}
-      </span>
+      />
+      {/* ---------Code for Game List----- */}
       {/* <ul className="list">
         {(games && games.length > 0) ? (
           games.map((game) => renderGame(game))
@@ -72,8 +69,9 @@ function Home(props) {
           <p>No games found</p>
         )}
       </ul> */}
-      {user.name
-        && <button type="button" onClick={handleLogout}>Logout</button>}
+      {/*-------- Code for logout------ */}
+      {/* {user.name
+        && <button type="button" onClick={handleLogout}>Logout</button>} */}
     </div>
   );
 }
