@@ -9,6 +9,7 @@ import { useSelector} from 'react-redux';
 import { selectUser } from './store/slices/userSlice';
 import Dashboard from './dashboard/Dashboard';
 import Home from './home/Home';
+import './App.css';
 
 function App() {
   const user = useSelector(selectUser);
