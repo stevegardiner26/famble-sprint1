@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
 
 function Dashboard(props) {
   const user = useSelector(selectUser);
-  const [sendToHome, setSendToHome] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -46,7 +45,6 @@ function Dashboard(props) {
 
   return (
     <div>
-      {sendToHome}
       Welcome to the dashboard page!
       <button type="button" onClick={handleLogout}>Logout</button>
     </div>
