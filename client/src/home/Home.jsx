@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 
-// Comment
 // SERVICES
 import gameService from '../services/gameService';
 import userService from '../services/userService';
@@ -52,7 +51,7 @@ function Home(props) {
   );
 
   return (
-    <div className="App">
+    <div>
       {sendToDash}
       {!user.name
         && (
@@ -66,13 +65,13 @@ function Home(props) {
         Name:
         {user.name}
       </span>
-      <ul className="list">
+      {/* <ul className="list">
         {(games && games.length > 0) ? (
           games.map((game) => renderGame(game))
         ) : (
           <p>No games found</p>
         )}
-      </ul>
+      </ul> */}
       {user.name
         && <button type="button" onClick={handleLogout}>Logout</button>}
     </div>
