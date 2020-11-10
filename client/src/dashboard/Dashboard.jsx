@@ -1,18 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import TableContainer from '@material-ui/core/TableContainer';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import GoogleLogout from 'react-google-login';
 // import gameService from '../services/gameService';
-CLIENT_ID="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
+const CLIENT_ID="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
           
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -74,7 +78,7 @@ function Dashboard(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
           <p>{user.name}</p>
           <GoogleLogout
@@ -83,10 +87,11 @@ function Dashboard(props) {
             onLogoutSuccess={ handleLogout }
           >
           </GoogleLogout>
+          <TableContainer component={Paper}>
           <Table className = {classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Game</TableCell>
+              <TableCell align="center">Game</TableCell>
               <TableCell align="right">Date/Time</TableCell>
               <TableCell align="right">Description</TableCell>
               <TableCell align="right">Final Score</TableCell>
@@ -95,18 +100,20 @@ function Dashboard(props) {
               
             </TableRow>
           </TableHead>
-          <TableBody>
-            {games.map((row)=>(
-              <TableRow key = {row.id}>
-                <TableCell align = "right"> {row.name}</TableCell>
-                <TableCell align = "right">{row.description}</TableCell>
-                <TableCell align = "right">{row.score}</TableCell>
-                <TableCell align = "right">{row.started}</TableCell>
-                <TableCell align = "right"><Button/></TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+            <TableBody>
+              {games.map((row)=>(
+                <TableRow key = {row.id}>
+                  <TableCell align = "center"> {row.name}</TableCell>
+                  <TableCell align = "right">{row.time}</TableCell>
+                  <TableCell align = "right">{row.description}</TableCell>
+                  <TableCell align = "right">{row.score}</TableCell>
+                  <TableCell align = "right">{row.started}</TableCell>
+                  <TableCell align = "right"><Button variant="contained" color="primary" disableElevation>Place Bet!</Button></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
           </Table>
+          </TableContainer>
         </Typography>
       </Container>
     </React.Fragment>
