@@ -5,28 +5,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 
 // SERVICES
-import gameService from '../services/gameService';
+// import gameService from '../services/gameService';
 import userService from '../services/userService';
 import { selectUser, login, logout } from '../store/slices/userSlice';
 
 function Home(props) {
   const user = useSelector(selectUser);
-  const [games, setGames] = useState(null);
   const [sendToDash, setSendToDash] = useState(null);
 
   const dispatch = useDispatch();
-
-  const getGames = async () => {
-    const res = await gameService.getAll();
-    setGames(res);
-  };
-
-  useEffect(() => {
-    if (!games) {
-      getGames();
-    }
-  });
-
   const responseGoogle = async (response) => {
     const payload = {
       name: response.profileObj.name,
@@ -36,19 +23,32 @@ function Home(props) {
     };
     const res = await userService.signIn(payload);
     dispatch(login(res.user));
+
     setSendToDash(<Redirect to="/dashboard" />);
   };
 
   const handleLogout = () => {
     dispatch(logout());
   };
+  // Code for getting the games
+  // const [games, setGames] = useState(null);
+  // const getGames = async () => {
+  //   const res = await gameService.getAll();
+  //   setGames(res);
+  // };
 
-  const renderGame = (game) => (
-    <li key={game._id} className="list__item game">
-      <h3 className="game__name">{game.name}</h3>
-      <p className="game__description">{game.description}</p>
-    </li>
-  );
+  // useEffect(() => {
+  //   if (!games) {
+  //     getGames();
+  //   }
+  // });
+
+  // const renderGame = (game) => (
+  //   <li key={game._id} className="list__item game">
+  //     <h3 className="game__name">{game.name}</h3>
+  //     <p className="game__description">{game.description}</p>
+  //   </li>
+  // );
 
   return (
     <div>
