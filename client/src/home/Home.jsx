@@ -7,6 +7,7 @@ import styles from './Home.module.css';
 // SERVICES
 import userService from '../services/userService';
 import { selectUser, login } from '../store/slices/userSlice';
+import InfoCard from './InfoCard';
 
 
 function Home(props) {
@@ -36,8 +37,11 @@ function Home(props) {
           />
         </p>
       </Jumbotron>
-
-
+      <InfoCard />
+      {/* Who you (collectively) are
+          What you made and what it does
+          How you made it and what technologies were used
+          Why you’ve made it and why it matters  */}
     </div>
   );
 }
