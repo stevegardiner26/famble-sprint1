@@ -18,6 +18,11 @@ module.exports = (app) => {
     });
   });
 
+  // Fetch Games From API
+  app.post('/api/fetch_games', async (req, res) => {
+    
+  });
+
   // Update
   app.put('/api/games/:id', async (req, res) => {
     const { id } = req.params;
