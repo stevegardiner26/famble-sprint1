@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
@@ -79,7 +79,7 @@ function Dashboard(props) {
       <CssBaseline />
       <Container maxWidth="md">
         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
-          <img src = { user.profile_image }></img>
+          <img alt = "" src = { user.profile_image }></img>
           <br/>
           <GoogleLogout
           clientId={ CLIENT_ID }
