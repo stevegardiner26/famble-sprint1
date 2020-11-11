@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 // IMPORT ROUTES
 require('./routes/gameRoutes')(app);
 require('./routes/userRoutes')(app);
+require('./routes/betRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
