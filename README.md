@@ -68,11 +68,11 @@ heroku pg:psql
 
 ## Contact
 
-Jay - jpr48@njit.edu
-Steven -  
-Vivek -
-Pedro - 
+- Jay - jpr48@njit.edu
+- Steven Gardiner - spg28@njit.edu 
+- Vivek Sreenivasan - vns9@njit.edu
+- Pedro Ramos - par25@njit.edu
 
-Project Link: [https://github.com/](https://github.com/)
+Project Link: [https://github.com/stevegardiner26/famble](https://github.com/stevegardiner26/famble)
 
-Heroku Link: [LINK](LINK)
+Heroku Link: [https://famble.herokuapp.com/](https://famble.herokuapp.com/)
