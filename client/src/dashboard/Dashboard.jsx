@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
+import styles from './Dashboard.module.css';
 // import gameService from '../services/gameService';
 
 function Dashboard(props) {
@@ -45,7 +46,7 @@ function Dashboard(props) {
       // </ul> */}
 
   return (
-    <div>
+    <div className={styles.Dashboard}>
       Welcome to the dashboard page!
       <button type="button" onClick={handleLogout}>Logout</button>
     </div>

@@ -15,16 +15,18 @@ function App() {
   const user = useSelector(selectUser);
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          {user.name ? <Redirect to="/dashboard" /> : <Home />} 
-        </Route>
-        <Route exact path="/dashboard">
-          {!user.name ? <Redirect to="/" /> : <Dashboard />} 
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            {user.name ? <Redirect to="/dashboard" /> : <Home />} 
+          </Route>
+          <Route exact path="/dashboard">
+            {!user.name ? <Redirect to="/" /> : <Dashboard />} 
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
