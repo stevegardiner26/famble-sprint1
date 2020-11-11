@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
+import BetModal from './BetModal';
 // import gameService from '../services/gameService';
 
 function Dashboard(props) {
@@ -48,6 +49,7 @@ function Dashboard(props) {
     <div>
       Welcome to the dashboard page!
       <button type="button" onClick={handleLogout}>Logout</button>
+      <BetModal team1="Chiefs" team2="Seahawks" body="stats" />
     </div>
   );
 }
