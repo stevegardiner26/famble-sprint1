@@ -1,0 +1,11 @@
+.modal_footer{
+    justify-content: space-evenly;
+}
+
+.modal_button{
+    background-color: rgb(58, 58, 155);
+}
+
+.bet_form{
+    width:100%;
+}

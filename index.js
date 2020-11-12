@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 require('./routes/gameRoutes')(app);
 require('./routes/userRoutes')(app);
 require('./routes/teamRoutes')(app);
+require('./routes/betRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
