@@ -12,7 +12,6 @@ module.exports = (app) => {
     });
     app.get('/api/teams/:id', async(req,res)=>{
         const team_id = req.params.id;
-        console.log(typeof(team_id))
         let teamInfo = await Team.find({
             team_id: team_id
         });

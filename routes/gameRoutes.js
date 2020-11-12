@@ -8,6 +8,7 @@ module.exports = (app) => {
   // Get
   app.get('/api/games', async (req, res) => {
     const games = await Game.find();
+    
     return res.status(200).send(games);
   });
 
