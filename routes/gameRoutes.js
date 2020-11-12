@@ -40,7 +40,7 @@ module.exports = (app) => {
               in_progress: game.IsInProgress,
               end_time: game.GameEndDateTime
             };
-            await Game.findOneAndUpdate({game_id: game.GlobalGameID}, payload);
+            await Game.findOneAndUpdate({game_id: game.GlobalGameID}, payload, {useFindAndModify: false});
           });
         });
       });
@@ -75,7 +75,7 @@ module.exports = (app) => {
               canceled: game.Canceled,
               status: game.Status
             };
-            await Game.findOneAndUpdate({game_id: game.GlobalGameID}, payload);
+            await Game.findOneAndUpdate({game_id: game.GlobalGameID}, payload, {useFindAndModify: false});
           }
         });
       });
