@@ -11,26 +11,41 @@ module.exports = (app) => {
     return res.status(200).send(games);
   });
 
-  // Create
-  app.post('/api/games', async (req, res) => {
-    const game = await Game.create(req.body);
-    return res.status(201).send({
-      error: false,
-      game,
-    });
+  app.get('/api/games/:id', async (req, res) => {
+    const { id } = req.params;
+    const game = await Game.findOne({ game_id: id })
+    return res.status(200).send(game);
   });
 
-
   app.get('/api/fetch_weekly_scores', async (req, res) => {
-    // Get Current Season
-    // Get Current Week
-    // Fetch Scores and Update Games with new data
-      //canceled: Boolean,
-      //    status: String,
-      //  away_score: Number,
-      //home_score: Number
-      // end_time
-      // calculate winner and select wininer if status is Final
+    client.get("https://api.sportsdata.io/v3/nfl/scores/json/UpcomingSeason", {headers: {"Ocp-Apim-Subscription-Key": process.env['NFL_API_TOKEN']}}, function (year, response) {
+      client.get("https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek", {headers: {"Ocp-Apim-Subscription-Key": process.env['NFL_API_TOKEN']}}, function (week, response) {
+        client.get(`https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/${year}/${week}`, {headers: {"Ocp-Apim-Subscription-Key": process.env['NFL_API_TOKEN']}}, function (week, response) {
+          data.forEach(async (game) => {
+            let winner_id = null;
+            if (game.status == "Final") {
+              // TODO: Handle Payouts for Users in Here
+              if (game.away_score > game.home_score) {
+                winner_id = game.GlobalAwayTeamID;
+              } else {
+                winner_id = game.GlobalHomeTeamID;
+              }
+            }
+            let payload = {
+              canceled: game.Canceled,
+              status: game.Status,
+              away_score: game.AwayScore,
+              home_score: game.HomeScore,
+              winner: winner_id,
+              in_progress: game.IsInProgress,
+              end_time: game.GameEndDateTime
+            };
+            await Game.findOneAndUpdate({game_id: game.GlobalGameID}, payload);
+          });
+        });
+      });
+    });
+    return res.status(200).send({message: "Updated This Weeks Games!"});
   });
 
   // Fetch Games From API
