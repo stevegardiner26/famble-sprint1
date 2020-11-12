@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config({path: __dirname + '/.env'})
 
 // IMPORT MODELS
 require('./models/Game');
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 // IMPORT ROUTES
 require('./routes/gameRoutes')(app);
 require('./routes/userRoutes')(app);
+require('./routes/teamRoutes')(app);
 require('./routes/betRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
