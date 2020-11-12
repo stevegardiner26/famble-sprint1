@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 
 import { useSelector, useDispatch } from 'react-redux';
+
 import { selectUser, logout } from '../store/slices/userSlice';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +18,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import BetModal from './BetModal';
 import { GoogleLogout } from 'react-google-login';
+
+import gameService from '../services/gameService';
 import styles from './Dashboard.module.css';
 
 // import gameService from '../services/gameService';
@@ -26,18 +29,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth:650,
   },
 }));
-function createData(name, time, description, score, started, id) {
-  return { name, time, description, score, started, id };
-}
 
-const games = [
-  createData('Cardinals vs Rams', '11/20/20', 'Placeholder Text', '0-0', 'No',1),
-  createData('Bengals vs Giants', '11/10/20', 'Placeholder Text', 'Not Yet Determined', 'Yes',2),
-  createData('Other game', '11/10/20', 'Placeholder Text', 'Not Yet Determined', 'Yes',3),
-
-];
 function Dashboard(props) {
-  
+  const [games, setGames] = useState([]);
   const classes = useStyles();
  
   const user = useSelector(selectUser);
@@ -50,16 +44,20 @@ function Dashboard(props) {
 
   // Code for getting the games -----------------
   // const [games, setGames] = useState(null);
-  // const getGames = async () => {
-  //   const res = await gameService.getAll();
-  //   setGames(res);
-  // };
-
-  // useEffect(() => {
-  //   if (!games) {
-  //     getGames();
-  //   }
-  // });
+  const getGames = async () => {
+    const res =  await gameService.getAllGames();
+    console.log(res)
+    setGames(res);
+  };
+  
+  useEffect(() => {
+    if (games.length === 0) {
+      console.log("Ran");
+      getGames();
+    }
+    
+    console.log(games);
+  });
 
   // const renderGame = (game) => (
   //   <li key={game._id} className="list__item game">
@@ -95,26 +93,28 @@ function Dashboard(props) {
           <Table className = {classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">Game</TableCell>
+              <TableCell align="center">Home Team</TableCell>
+              <TableCell align="center">Away Team</TableCell>
               <TableCell align="center">Date/Time</TableCell>
               <TableCell align="center">Description</TableCell>
               <TableCell align="center">Final Score</TableCell>
-              <TableCell align="center">Started?</TableCell>
               <TableCell align="center">Bet link</TableCell>
               
             </TableRow>
           </TableHead>
             <TableBody>
-              {games.map((row)=>(
-                <TableRow key = {row.id}>
-                  <TableCell align = "center"> {row.name}</TableCell>
-                  <TableCell align = "center">{row.time}</TableCell>
-                  <TableCell align = "center">{row.description}</TableCell>
-                  <TableCell align = "center">{row.score}</TableCell>
-                  <TableCell align = "center">{row.started}</TableCell>
-                  <TableCell align = "center"><BetModal/></TableCell>
-                </TableRow>
+              
+              {games.map((row)=>(              
+                  <TableRow key = {row.id}>
+                    <TableCell align = "center"> {row.home_team_id}</TableCell>
+                    <TableCell align = "center"> {row.away_team_id}</TableCell>
+                    <TableCell align = "center">{row.start_time}</TableCell>
+                    <TableCell align = "center">{row.description}</TableCell>
+                    <TableCell align = "center">{row.score}</TableCell>
+                    <TableCell align = "center"><BetModal/></TableCell>
+                  </TableRow>
               ))}
+              
             </TableBody>
           </Table>
           </TableContainer>
