@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config({path: __dirname + '/.env'})
 
 // IMPORT MODELS
 require('./models/Game');
