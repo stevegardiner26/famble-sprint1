@@ -9,21 +9,24 @@ import { useSelector} from 'react-redux';
 import { selectUser } from './store/slices/userSlice';
 import Dashboard from './dashboard/Dashboard';
 import Home from './home/Home';
+import './App.css';
 
 function App() {
   const user = useSelector(selectUser);
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          {user.name ? <Redirect to="/dashboard" /> : <Home />} 
-        </Route>
-        <Route exact path="/dashboard">
-          {!user.name ? <Redirect to="/" /> : <Dashboard />} 
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            {user.name ? <Redirect to="/dashboard" /> : <Home />} 
+          </Route>
+          <Route exact path="/dashboard">
+            {!user.name ? <Redirect to="/" /> : <Dashboard />} 
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

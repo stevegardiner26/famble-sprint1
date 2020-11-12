@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import userService from './services/userService';
 import { login } from './store/slices/userSlice';

@@ -15,6 +15,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { GoogleLogout } from 'react-google-login';
+import styles from './Dashboard.module.css';
+
 // import gameService from '../services/gameService';
 const CLIENT_ID="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
 const useStyles = makeStyles((theme) => ({
