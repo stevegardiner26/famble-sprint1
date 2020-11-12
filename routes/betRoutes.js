@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users')
 const Bet = mongoose.model('bets');
-const Game = mongoodse.model('games');
+const Game = mongoose.model('games');
 
 module.exports = (app) => {
      // Get
