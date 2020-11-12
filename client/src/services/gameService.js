@@ -9,7 +9,7 @@ export default {
     const res = await axios.get('/api/fetch_teams');
     return res.data || [];
   },
-  getAll: async () => {
+  getAllScores: async () => {
     const res = await axios.get('/api/fetch_weekly_scores');
     return res.data || [];
   },
