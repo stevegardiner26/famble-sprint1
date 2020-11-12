@@ -2,6 +2,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, logout } from '../store/slices/userSlice';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +15,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import BetModal from './BetModal';
 import { GoogleLogout } from 'react-google-login';
 import styles from './Dashboard.module.css';
 
@@ -110,7 +112,7 @@ function Dashboard(props) {
                   <TableCell align = "center">{row.description}</TableCell>
                   <TableCell align = "center">{row.score}</TableCell>
                   <TableCell align = "center">{row.started}</TableCell>
-                  <TableCell align = "center"><Button variant="contained" color="primary" disableElevation>Place Bet!</Button></TableCell>
+                  <TableCell align = "center"><BetModal/></TableCell>
                 </TableRow>
               ))}
             </TableBody>
