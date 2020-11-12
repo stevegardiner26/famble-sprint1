@@ -23,12 +23,24 @@ module.exports = (app) => {
         client.get(`https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/${year}/${week}`, {headers: {"Ocp-Apim-Subscription-Key": process.env['NFL_API_TOKEN']}}, function (week, response) {
           week.forEach(async (game) => {
             let winner_id = null;
-            if (game.status == "Final") {
-              // TODO: Handle Payouts for Users in Here
+            if (game.status == "Final") {          
               if (game.away_score > game.home_score) {
                 winner_id = game.GlobalAwayTeamID;
               } else {
                 winner_id = game.GlobalHomeTeamID;
+              }
+
+              let bets = Bet.find({game_id: game.GlobalGameID});
+              if (bets.length > 1) {
+                bets.forEach(async (b) => {
+                  if (b.team_id == winner_id) {
+                    const user = await User.findById(b.user_id);
+                    await User.findByIdAndUpdate(b.user_id, {
+                        shreddit_balance: (user.shreddit_balance + (2 * b.amount))
+                    });
+                  }
+                  await Bet.findByIdAndDelete(b.id);          
+                });
               }
             }
             let payload = {
