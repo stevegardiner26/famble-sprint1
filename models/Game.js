@@ -7,11 +7,13 @@ const gameSchema = new Schema({
     sport_type: String,
     start_time: Date,
     winner: String,
-    team_home_id: Number,
-    team_away_id: Number,
+    home_team_id: Number,
+    away_team_id: Number,
     canceled: Boolean,
     status: String,
-    score_id: Number
+    away_score: Number,
+    home_score: Number,
+    end_time: Date
 }, {timestamps: true})
 
 mongoose.model('games', gameSchema);
