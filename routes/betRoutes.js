@@ -1,12 +1,24 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users')
 const Bet = mongoose.model('bets');
+const Game = mongoodse.model('games');
 
 module.exports = (app) => {
      // Get
   app.get('/api/bets', async (req, res) => {
     const bets = await Bet.find();
     return res.status(200).send(bets);
+  });
+
+  app.get('/api/bets/:game_id', async (req, res) => {
+    const { game_id } = req.params;
+
+    const bets = await Bet.find({game_id: game_id});
+
+    return res.status(202).send({
+      error: false,
+      bets,
+    });
   });
 
   // Create
@@ -21,6 +33,8 @@ module.exports = (app) => {
       bet,
     });
   });
+  
+
 
 //   // Update
 //   app.put('/api/bets/:id', async (req, res) => {
