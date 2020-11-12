@@ -13,6 +13,7 @@ const gameSchema = new Schema({
     status: String,
     away_score: Number,
     home_score: Number,
+    in_progress: Boolean,
     end_time: Date
 }, {timestamps: true})
 
