@@ -1,4 +1,5 @@
 var Client = require('node-rest-client').Client;
+
 const mongoose = require('mongoose');
 const Team = mongoose.model('teams');
 
@@ -9,7 +10,13 @@ module.exports = (app) => {
         const teams = await Team.find();
         return res.status(200).send(teams);
     });
-
+    app.get('/api/teams/:id', async(req,res)=>{
+        const team_id = req.params.id;
+        let teamInfo = await Team.find({
+            team_id: team_id
+        });
+        return res.status(200).send(teamInfo);
+    })
     // Ideally this is hit once a season to get the teams
     app.get('/api/fetch_teams', async (req, res) => {
         
