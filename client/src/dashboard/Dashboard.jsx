@@ -16,7 +16,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -44,7 +44,14 @@ const useStyles2 = makeStyles({
     minWidth: 650,
   },
 });
-
+const useStyles3 = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
 
 
@@ -100,7 +107,7 @@ function TablePaginationActions(props) {
 }
 
 function Dashboard(props) {
-  
+  const avatar = useStyles3();
   const [page, setPage] = React.useState(0);
   const [games, setGames] = useState([]);
   const classes = useStyles2();
@@ -135,29 +142,14 @@ function Dashboard(props) {
     }
   });
 
-  // const renderGame = (game) => (
-  //   <li key={game._id} className="list__item game">
-  //     <h3 className="game__name">{game.name}</h3>
-  //     <p className="game__description">{game.description}</p>
-  //   </li>
-  // );
-  // -------------------
-
-  // ---------Code for Game List-----
-      // {/* <ul className="list">
-      //   {(games && games.length > 0) ? (
-      //     games.map((game) => renderGame(game))
-      //   ) : (
-      //     <p>No games found</p>
-      //   )}
-      // </ul> */}
-
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
-          <img alt = "" src = { user.profile_image }></img>
+          <div className={avatar.root}>
+            <Avatar alt="User" src= { user.profile_image } />
+          </div>
           <br/>
           <GoogleLogout
           clientId={ CLIENT_ID }
