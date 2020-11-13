@@ -14,6 +14,10 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
@@ -46,10 +50,13 @@ const useStyles2 = makeStyles({
 });
 const useStyles3 = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+    width: '100%',
+    maxWidth: '20ch',
+    backgroundColor: '#cfe8fc',
+    borderRadius: '25px',
+  },
+  inline: {
+    display: 'inline',
   },
 }));
 
@@ -107,7 +114,7 @@ function TablePaginationActions(props) {
 }
 
 function Dashboard(props) {
-  const avatar = useStyles3();
+  const list = useStyles3();
   const [page, setPage] = React.useState(0);
   const [games, setGames] = useState([]);
   const classes = useStyles2();
@@ -146,18 +153,25 @@ function Dashboard(props) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
-          <div className={avatar.root}>
-            <Avatar alt="User" src= { user.profile_image } />
-          </div>
-          <br/>
+        <Typography component="div" style={{ backgroundColor: '#504343', height: '100vh' }}>
+            <div style={{ paddingTop: '15px', paddingBottom: '10px'}}>
+              <List className={list.root}>
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar alt="User" src= { user.profile_image } />
+                  </ListItemAvatar>
+                  <ListItemText primary={user.name}/>
+                </ListItem>
+              </List>
+            </div>
+          
           <GoogleLogout
           clientId={ CLIENT_ID }
           buttonText='Logout'
           onLogoutSuccess={ handleLogout }
           />
           <br/>
-          <TableContainer component={Paper}>
+          <TableContainer style= {{ marginTop: '10px'}}component={Paper}>
           <Table className = {classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -165,7 +179,6 @@ function Dashboard(props) {
               <TableCell align="center">Away Team</TableCell>
               <TableCell align="center">Date/Time</TableCell>
               <TableCell align="center">Description</TableCell>
-              <TableCell align="center">Final Score</TableCell>
               <TableCell align="center">Bet link</TableCell>
               
             </TableRow>
