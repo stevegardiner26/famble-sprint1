@@ -27,6 +27,9 @@ function BetModal(props){
 				if(res === []){
 					alert("Could not place bet at this time. Try again later.")
 				}
+				else{
+					alert("Bet placed successfully!");
+				}
 			}
 			setBet();
 		}
