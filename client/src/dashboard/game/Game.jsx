@@ -36,8 +36,8 @@ function Game({ info }){
             <TableCell align = "center">{status}</TableCell>
             <TableCell align = "center">
                 <BetModal game_id={game_id} 
-                team1 = {{name:{homeTeamName}, id:{home_team_id}}} 
-                team2 = {{name:{awayTeamName}, id:{away_team_id}}}/>
+                team1 = {{name:`${homeTeamName}`, id:`${home_team_id}`}} 
+                team2 = {{name:`${awayTeamName}`, id:`${away_team_id}`}}/>
             </TableCell>
             </TableRow>
         )
