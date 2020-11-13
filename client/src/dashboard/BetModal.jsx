@@ -20,6 +20,8 @@ function BetModal(props){
 	const game_id = props.game_id;
 	const user_id = user._id;
 
+	const toggle = () => setModal(!modal);
+
 	useEffect(() => {
 		if(valid){
 			const setBet = async() => {
@@ -29,13 +31,12 @@ function BetModal(props){
 				}
 				else{
 					alert("Bet placed successfully!");
+					toggle();
 				}
 			}
 			setBet();
 		}
 	},[valid, user_id, game_id, team_id, amount]);
-
-	const toggle = () => setModal(!modal);
 
 	const changeTeam_id = (teamSelectedID) => {
 		setTeam_id(teamSelectedID);
