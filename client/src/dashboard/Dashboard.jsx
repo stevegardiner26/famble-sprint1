@@ -16,7 +16,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+
 import BetModal from './BetModal';
+import Game from './game/Game';
 import { GoogleLogout } from 'react-google-login';
 
 import gameService from '../services/gameService';
@@ -46,17 +48,13 @@ function Dashboard(props) {
   // const [games, setGames] = useState(null);
   const getGames = async () => {
     const res =  await gameService.getAllGames();
-    console.log(res)
     setGames(res);
   };
   
   useEffect(() => {
     if (games.length === 0) {
-      console.log("Ran");
       getGames();
     }
-    
-    console.log(games);
   });
 
   // const renderGame = (game) => (
@@ -104,15 +102,8 @@ function Dashboard(props) {
           </TableHead>
             <TableBody>
               
-              {games.map((row)=>(              
-                  <TableRow key = {row.id}>
-                    <TableCell align = "center"> {row.home_team_id}</TableCell>
-                    <TableCell align = "center"> {row.away_team_id}</TableCell>
-                    <TableCell align = "center">{row.start_time}</TableCell>
-                    <TableCell align = "center">{row.description}</TableCell>
-                    <TableCell align = "center">{row.score}</TableCell>
-                    <TableCell align = "center"><BetModal/></TableCell>
-                  </TableRow>
+              {games.slice(165,games.length-1).map((row)=>(       
+                <Game info={row}/>
               ))}
               
             </TableBody>
