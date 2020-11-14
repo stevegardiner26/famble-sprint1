@@ -51,7 +51,7 @@ const useStyles2 = makeStyles({
 const useStyles3 = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: '20ch',
+    maxWidth: '30ch',
     backgroundColor: '#cfe8fc',
     borderRadius: '25px',
   },
@@ -153,14 +153,15 @@ function Dashboard(props) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        <Typography component="div" style={{ backgroundColor: '#504343', height: '100vh' }}>
+        <Typography component="div" style={{ overflowY: 'auto', backgroundColor: '#504343', height: '100vh' }}>
             <div style={{ paddingTop: '15px', paddingBottom: '10px'}}>
               <List className={list.root}>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar alt="User" src= { user.profile_image } />
                   </ListItemAvatar>
-                  <ListItemText primary={user.name}/>
+                  <ListItemText primary={user.name} secondary={'Balance: '+`${user.shreddit_balance}`}/>
+                  
                 </ListItem>
               </List>
             </div>
