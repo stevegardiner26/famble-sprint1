@@ -9,7 +9,6 @@ import userService from '../services/userService';
 import { selectUser, login } from '../store/slices/userSlice';
 import InfoCard from './InfoCard';
 
-
 function Home(props) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -30,7 +29,8 @@ function Home(props) {
         <h1 className={styles.display_text}>Welcome to Famble!</h1>
         <p className={styles.display_subtext}>Sports betting without the cost.</p>
         <p>
-          <GoogleLogin className={styles.google}
+          <GoogleLogin
+            className={styles.google}
             clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
             buttonText="Sign In"
             onSuccess={responseGoogle}
@@ -41,11 +41,7 @@ function Home(props) {
       <InfoCard title="Our Mission" content="Why you’ve made it and why it matters" image="https://via.placeholder.com/250" />
       <InfoCard img_side="left" title="Our Team" content="Who you (collectively) are" image="https://via.placeholder.com/250" />
       <InfoCard title="Development" content="How you made it and what technologies were used" image="https://via.placeholder.com/250" />
-      <br></br>
-      {/* Who you (collectively) are
-          What you made and what it does
-          How you made it and what technologies were used
-          Why you’ve made it and why it matters  */}
+      <br />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -183,7 +184,6 @@ function Dashboard(props) {
               </TableHead>
               <TableBody>
                 {(rowsPerPage > 0
-                  // eslint-disable-next-line max-len
                   ? games.slice(142, games.length - 1).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   : games
                 ).map((row) => (
