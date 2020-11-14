@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
@@ -37,12 +36,13 @@ function BetModal(props) {
           alert('Could not place bet at this time. Try again later.');
         } else {
           alert('Bet placed successfully!');
+          setValid(false);
           setModal(!modal);
         }
       };
       setBet();
     }
-  }, [valid, userID, gameID, teamID, amount, modal]);
+  }, [valid, userID, gameID, teamID, amount]);
 
   const changeTeamID = (teamSelectedID) => {
     setTeamID(teamSelectedID);
