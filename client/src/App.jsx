@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from './store/slices/userSlice';
 import Dashboard from './dashboard/Dashboard';
 import Home from './home/Home';
@@ -19,10 +19,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {user.name ? <Redirect to="/dashboard" /> : <Home />} 
+            {user.name ? <Redirect to="/dashboard" /> : <Home /> }
           </Route>
           <Route exact path="/dashboard">
-            {!user.name ? <Redirect to="/" /> : <Dashboard />} 
+            {!user.name ? <Redirect to="/" /> : <Dashboard /> }
           </Route>
         </Switch>
       </Router>
