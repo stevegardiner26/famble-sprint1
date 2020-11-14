@@ -155,17 +155,16 @@ function Dashboard(props) {
       <Container maxWidth="md">
 
         <Typography component="div" style={{ overflowY: 'auto', backgroundColor: '#504343', height: '100vh' }}>
-            <div style={{ paddingTop: '15px', paddingBottom: '10px'}}>
-              <List className={list.root}>
-                <ListItem>
-                  <ListItemAvatar>
-                    <Avatar alt="User" src= { user.profile_image } />
-                  </ListItemAvatar>
-                  <ListItemText primary={user.name} secondary={'Balance: '+`${user.shreddit_balance}`}/>
-                  
-                </ListItem>
-              </List>
-            </div>
+          <div style={{ paddingTop: '15px', paddingBottom: '10px' }}>
+            <List className={list.root}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar alt="User" src={user.profile_image} />
+                </ListItemAvatar>
+                <ListItemText primary={user.name} secondary={`Balance: ${user.shreddit_balance}`} />
+              </ListItem>
+            </List>
+          </div>
           <GoogleLogout
             clientId={CLIENT_ID}
             buttonText="Logout"
