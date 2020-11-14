@@ -12,3 +12,11 @@ const userSchema = new Schema({
 
 
 mongoose.model('users', userSchema);
+
+exports.registerUserModel = function() {
+    try {
+      mongoose.model('users', userSchema);
+    } catch (error) {
+      // console.log(error)
+    }
+}

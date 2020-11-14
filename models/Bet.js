@@ -9,3 +9,11 @@ const betSchema = new Schema({
 }, {timestamps: true})
 
 mongoose.model('bets', betSchema);
+
+exports.registerBetModel = function() {
+    try {
+      mongoose.model('bets', userSchema);
+    } catch (error) {
+      // console.log(error)
+    }
+}
