@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import axios from 'axios';
 // eslint-disable-next-line
 export default {

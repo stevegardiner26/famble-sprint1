@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 // eslint-disable-next-line
 export default {
@@ -6,14 +7,14 @@ export default {
     return res.data || [];
   },
 
-  // TODO: Create a Get by Game ID 
+  // TODO: Create a Get by Game ID
 
   createBet: async (user_id, game_id, team_id, amount) => {
     const res = await axios.post('/api/bets', {
-        user_id,
-        game_id,
-        team_id,
-        amount
+      user_id,
+      game_id,
+      team_id,
+      amount,
     });
     return res.data || [];
   },
