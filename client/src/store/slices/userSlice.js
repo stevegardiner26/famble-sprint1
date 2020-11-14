@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars, no-param-reassign, no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 
