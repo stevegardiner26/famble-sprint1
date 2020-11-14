@@ -12,7 +12,7 @@ mongoose.model('bets', betSchema);
 
 exports.registerBetModel = function() {
     try {
-      mongoose.model('bets', userSchema);
+      mongoose.model('bets', betSchema);
     } catch (error) {
       // console.log(error)
     }
