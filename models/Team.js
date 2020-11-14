@@ -11,3 +11,11 @@ const teamSchema = new Schema({
 }, {timestamps: true})
 
 mongoose.model('teams', teamSchema);
+
+exports.registerTeamModel = function() {
+    try {
+      mongoose.model('teams', teamSchema);
+    } catch (error) {
+      // console.log(error)
+    }
+}
