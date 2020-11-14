@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import TableCell from '@material-ui/core/TableCell';
 import React, { useState, useEffect } from 'react';
@@ -18,29 +20,29 @@ function Game({ info }) {
     setAway(res);
   };
 
-  const { homeTeamID } = info;
-  const { awayTeamID } = info;
-  const { startTime } = info;
-  const { gameID } = info;
+  const { home_team_id } = info;
+  const { away_team_id } = info;
+  const { start_time } = info;
+  const { game_id } = info;
   const { status } = info;
 
   useEffect(() => {
-    getHomeTeam(homeTeamID);
-    getAwayTeam(awayTeamID);
+    getHomeTeam(home_team_id);
+    getAwayTeam(away_team_id);
   });
 
   return (
-    <TableRow key={gameID}>
+    <TableRow key={game_id}>
       <TableCell align="center">
         {homeTeamName}
       </TableCell>
       <TableCell align="center">
         {awayTeamName}
       </TableCell>
-      <TableCell align="center">{startTime}</TableCell>
+      <TableCell align="center">{start_time}</TableCell>
       <TableCell align="center">{status}</TableCell>
       <TableCell align="center">
-        <BetModal gameID={gameID} team1={{ name: `${homeTeamName}`, id: `${homeTeamID}` }} team2={{ name: `${awayTeamName}`, id: `${awayTeamID}` }} />
+        <BetModal gameID={game_id} team1={{ name: `${homeTeamName}`, id: `${home_team_id}` }} team2={{ name: `${awayTeamName}`, id: `${away_team_id}` }} />
       </TableCell>
     </TableRow>
   );
