@@ -17,6 +17,13 @@ An app that allows people to gamble with no negative consequences.
 - Redirection based on login status
 
 ### Steven Gardiner - spg28@njit.edu 
+
+- Helped setup MongoDB Schema
+- Setup Base Application Structure
+- Setup Persistent User State on Frontend
+- Setup User Routes on Backend
+- Setup Game Routes on Backend
+
 ### Vivek Sreenivasan - vns9@njit.edu
 ### Pedro Ramos - par25@njit.edu
 - Set up the MongoDB Schemas
