@@ -20,6 +20,13 @@ An app that allows people to gamble with no negative consequences.
 ### Vivek Sreenivasan - vns9@njit.edu
 ### Pedro Ramos - par25@njit.edu
 
+## Linting:
+
+- Linebreak-Style: Every time it was fixed, it would somehow get reverted when pulled from Github. 
+- Prop-Types: It was not working properly since I could not determine the type of props being passed. 
+- No-undef: Browser localstorage was undefined but it was being used to store the login token
+- No-underscore-dangle: '._id' needed to be accessed as userid for mongodb
+
 ## Getting Started
 
 
