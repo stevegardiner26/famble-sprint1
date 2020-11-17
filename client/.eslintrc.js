@@ -1,7 +1,8 @@
 module.exports = {
+  root: true,
   env: {
-    browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -18,5 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/prop-types': 'off',
+    'linebreak-style': 'off',
   },
 };
