@@ -19,7 +19,7 @@ An app that allows people to gamble with no negative consequences.
 ### Steven Gardiner - spg28@njit.edu 
 ### Vivek Sreenivasan - vns9@njit.edu
 ### Pedro Ramos - par25@njit.edu
-- Set up the MongoDB and the Schemas
+- Set up the MongoDB Schemas
 - Set up Betting API along with the Betting Service
 - Unit testing on the Backend
 
