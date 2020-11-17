@@ -17,8 +17,25 @@ An app that allows people to gamble with no negative consequences.
 - Redirection based on login status
 
 ### Steven Gardiner - spg28@njit.edu 
+
+- Helped setup MongoDB Schema
+- Setup Base Application Structure
+- Setup Persistent User State on Frontend
+- Setup User Routes on Backend
+- Setup Game Routes on Backend
+
 ### Vivek Sreenivasan - vns9@njit.edu
 ### Pedro Ramos - par25@njit.edu
+- Set up the MongoDB Schemas
+- Set up Betting API along with the Betting Service
+- Unit testing on the Backend
+
+## Linting:
+
+- Linebreak-Style: Every time it was fixed, it would somehow get reverted when pulled from Github. 
+- Prop-Types: It was not working properly since I could not determine the type of props being passed. 
+- No-undef: Browser localstorage was undefined but it was being used to store the login token
+- No-underscore-dangle: '._id' needed to be accessed as userid for mongodb
 
 ## Getting Started
 
