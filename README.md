@@ -25,6 +25,10 @@ An app that allows people to gamble with no negative consequences.
 - Setup Game Routes on Backend
 
 ### Vivek Sreenivasan - vns9@njit.edu
+- Created User dashboard 
+- Wrote wrapper functions to interact with API backend
+- Linted backend/frontend code
+
 ### Pedro Ramos - par25@njit.edu
 - Set up the MongoDB Schemas
 - Set up Betting API along with the Betting Service
