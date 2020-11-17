@@ -28,6 +28,7 @@ An app that allows people to gamble with no negative consequences.
 - Created User dashboard 
 - Wrote wrapper functions to interact with API backend
 - Linted backend/frontend code
+- Researched potential APIs for sports data
 
 ### Pedro Ramos - par25@njit.edu
 - Set up the MongoDB Schemas
