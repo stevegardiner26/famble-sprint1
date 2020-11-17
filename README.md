@@ -10,6 +10,19 @@ An app that allows people to gamble with no negative consequences.
 * [Node.js](https://nodejs.org/en/docs/)
 * [React](https://reactjs.org/docs/getting-started.html)
 
+## Contributions:
+
+### Jay Rana - jpr48@njit.edu
+
+- Landing page
+- Bet modal 
+- Linting and fixing frontend code
+- Redirection based on login status
+
+### Steven Gardiner - spg28@njit.edu 
+### Vivek Sreenivasan - vns9@njit.edu
+### Pedro Ramos - par25@njit.edu
+
 ## Getting Started
 
 
@@ -69,7 +82,7 @@ heroku pg:psql
 
 ## Contact
 
-- Jay - jpr48@njit.edu
+- Jay Rana - jpr48@njit.edu
 - Steven Gardiner - spg28@njit.edu 
 - Vivek Sreenivasan - vns9@njit.edu
 - Pedro Ramos - par25@njit.edu
