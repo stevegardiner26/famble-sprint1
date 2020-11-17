@@ -1,8 +1,5 @@
 Heroku Link: [https://famble.herokuapp.com/](https://famble.herokuapp.com/)
 # Famble
-
-## About The Project
-
 An app that allows people to gamble with no negative consequences.
 
 ### Built With
