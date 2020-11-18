@@ -34,6 +34,7 @@ An app that allows people to gamble with no negative consequences.
 - Set up the MongoDB Schemas
 - Set up Betting API along with the Betting Service
 - Unit testing on the Backend
+- Created the mockups
 
 ## Linting:
 
