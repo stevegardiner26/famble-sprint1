@@ -22,6 +22,9 @@ module.exports = (app) => {
   app.get('/api/fetch_weekly_scores', async (req, res) => {
     // Check and only allow this to execute the api call if it is 10 minutes past the last time it was called:
     let current_date = new Date();
+    if (date_cache == null) {
+      date_cache = current_date;
+    }
     let date_cache_dif = new Date(date_cache.getTime() + 10*60000);
     if (date_cache_dif > current_date) {
       return res.status(200).send({message: "Waiting to update week...", expire_time: date_cache_dif});
