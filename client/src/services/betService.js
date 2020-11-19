@@ -11,7 +11,7 @@ export default {
     const res = await axios.get('/api/bets/games/'+ game_id);
     return res.data || [];
   },
-
+  
   getBetsByUserId: async (user_id) => {
     const res = await axios.get('/api/bets/users/'+ user_id);
     return res.data || [];

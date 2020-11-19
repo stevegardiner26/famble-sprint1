@@ -10,20 +10,7 @@ module.exports = (app) => {
     return res.status(200).send(bets);
   });
 
-  // Bad practice, because it is biased towards User or the Game.
-
-  app.get('/api/bets/games/:game_id', async (req, res) => {
-    const { game_id } = req.params;
-
-    const bets = await Bet.find({game_id: game_id});
-
-    return res.status(202).send({
-      error: false,
-      bets,
-    });
-  });
-
-  // Get every bet under User ID
+  // Get bets by User ID
   app.get('/api/bets/users/:user_id', async (req, res) => {
     const { user_id } = req.params;
 
@@ -35,15 +22,17 @@ module.exports = (app) => {
     });
   });
 
-  // Get a single Bet by ID
+  // Get bets by Game ID
+  app.get('/api/bets/games/:game_id', async (req, res) => {
+    const { game_id } = req.params;
 
-  // app.get('/api/bets/:id', async (req, res) => {
-  //   const bet = await Bet.findById(req.params.id);
-  //   return res.status(200).send({
-  //     error: false,
-  //     bet,
-  //   });
-  // });
+    const bets = await Bet.find({game_id: game_id});
+
+    return res.status(202).send({
+      error: false,
+      bets,
+    });
+  });
 
   // Create
   app.post('/api/bets', async (req, res) => {
@@ -58,7 +47,7 @@ module.exports = (app) => {
     });
   });
 
-  // Update Amount
+  // Update Amount as long as the Updated Amount is greater than the previous Amount
   app.put('/api/bets/:id', async (req, res) => {
     let bet = await Bet.findById(req.params.id);
     const user = await User.findById(req.body.user_id);
@@ -81,16 +70,4 @@ module.exports = (app) => {
       });
     }
   });
-
-//   // Delete
-//   app.delete('/api/bets/:id', async (req, res) => {
-//     const { id } = req.params;
-
-//     const bet = await Bet.findByIdAndDelete(id);
-
-//     return res.status(202).send({
-//       error: false,
-//       bet,   5fac63bb93e6e411b0a84dd5 id
-//     }); 5fac5f347d42705f0c14fbb0 user id
-//   });
 };
