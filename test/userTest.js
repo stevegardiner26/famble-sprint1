@@ -27,7 +27,7 @@ describe("GET /api/users/:id", function() {
 
   it("it should have status code 200 and pass id into user.create since user does not exist", function(done) {
     const mockRequest = httpMocks.createRequest({
-      method: "POST",
+      method: "GET",
       url: "/api/users/5fb83983417ae836a4e2b170",
       params:{
         id: "5fb83983417ae836a4e2b170"
