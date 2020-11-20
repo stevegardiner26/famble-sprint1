@@ -12,7 +12,7 @@ const userSchema = new Schema({
 
 
 mongoose.model('users', userSchema);
-
+exports.userModel = mongoose.model('users', userSchema);
 exports.registerUserModel = function() {
     try {
       mongoose.model('users', userSchema);
