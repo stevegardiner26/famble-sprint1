@@ -32,7 +32,29 @@ async function postBets(req, res){
       bet,
     });
 }
+
+// app.put('/api/bets/:id', putBets);
+async function putBets(req, res) {
+    const { id } = req.params;
+    const bet = await Bet.findByIdAndUpdate(id, req.body);
+    return res.status(202).send({
+        error: false,
+        bet,
+    });
+}
+
+// app.delete('/api/bets/:id', deleteBets);
+async function deleteBets(req, res){
+    const { id } = req.params;
+    const bet = await Bet.findByIdAndDelete(id);
+    return res.status(202).send({
+        error: false,
+        bet,
+    });
+}
   
 exports.getBets = getBets;
 exports.getBetsByGameID = getBetsByGameID;
 exports.postBets = postBets;
+exports.putBets = putBets;
+exports.deleteBets = deleteBets;
