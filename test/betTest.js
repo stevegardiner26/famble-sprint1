@@ -50,6 +50,7 @@ describe("GET /api/bets", function() {
   });
 });
 
+// ----------------------------------------------------------------------------------
 describe("GET /api/bets/:gameid", function() {  
   let stub;
   let fixture;
@@ -78,7 +79,7 @@ describe("GET /api/bets/:gameid", function() {
     done();
   })
 
-  it("it should have status code 202 and pass data from Bet.find", function(done) {
+  it("it should have status code 202 and pass gameId from Bet.find", function(done) {
     const mockRequest = httpMocks.createRequest({
       method: "GET",
       url: "/api/bets/4",
@@ -109,10 +110,12 @@ describe("GET /api/bets/:gameid", function() {
   });
 });
 
+// ---------------------------------------------------------------------
 describe("POST /api/bets", function() {  
   let mockCreate;
   let mockFindById;
   let mockFindByIdUpdate;
+  let userResult;
 
   beforeEach((done) =>{
     userResult = {
@@ -128,7 +131,7 @@ describe("POST /api/bets", function() {
     })
     
     mockFindById = sinon.stub(userModel, "findById").returns(userResult);
-    mockFindByIdUpdate = sinon.stub(userModel, "findByIdAndUpdate").returns(userResult);
+    mockFindByIdUpdate = sinon.stub(userModel, "findByIdAndUpdate").returns();
     done();
   })
 
