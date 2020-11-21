@@ -5,7 +5,7 @@ const { betModel } = require('../models/Bet');
 const { userModel } = require('../models/User');
 const { gameModel } = require('../models/Game');
 const { teamModel } = require('../models/Team');
-const { getBets, getBetsByGameID, postBets, putBets, deleteBets } = require('../routes/betRoutesHandlers');
+const { getBets, getBetsByGameID, postBets, getBetsByUserID, putBets, deleteBets } = require('../routes/betRoutesHandlers');
 
 describe("GET /api/bets", function() {  
   let stub;
