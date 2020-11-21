@@ -1,6 +1,8 @@
 const Client = require('node-rest-client').Client;
 const mongoose = require('mongoose');
 const Game = mongoose.model('games');
+const Bet = mongoose.model('bets');
+const User = mongoose.model('users');
 const client = new Client();
 
 // app.get('/api/games', getGames) 
@@ -135,3 +137,4 @@ exports.fetchWeeklyScores = fetchWeeklyScores;
 exports.fetchGames = fetchGames;
 exports.updateGameById = updateGameById;
 exports.deleteGameById = deleteGameById;
+exports.date_cache = date_cache;
