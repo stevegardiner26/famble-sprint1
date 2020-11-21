@@ -68,7 +68,7 @@ describe("POST /api/users", function() {
     mockCreate = sinon.stub(userModel, "create").callsFake((body) => {
       return body;
     })
-    mockFindOne = sinon.stub(userModel, "findOne").returns({something:"something"});
+    mockFindOne = sinon.stub(userModel, "findOne").returns(null);
     done();
   })
 
