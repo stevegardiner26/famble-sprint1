@@ -48,3 +48,4 @@ async function fetchTeams(req, res){
 exports.getTeams = getTeams;
 exports.getTeamById = getTeamById;
 exports.fetchTeams = fetchTeams;
+exports.client = client;
