@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 import { Jumbotron } from 'reactstrap';
 import styles from './Home.module.css';
 // SERVICES
@@ -34,6 +35,14 @@ function Home(props) {
             clientId="405646879728-34aukb2l8lsknikc11pprr5i53pt3lvo.apps.googleusercontent.com"
             buttonText="Sign In"
             onSuccess={responseGoogle}
+          />
+        </p>
+        <p>
+          <FacebookLogin
+            appId="392101635039578"
+            autoLoad={true}
+            fields="name,email,picture"
+            callback={responseFacebook}
           />
         </p>
       </Jumbotron>
