@@ -19,6 +19,18 @@ function Home(props) {
       profile_image: response.profileObj.imageUrl,
       email: response.profileObj.email,
       google_id: response.profileObj.googleId,
+      auth_type: 'google',
+    };
+    const res = await userService.signIn(payload);
+    dispatch(login(res.user));
+  };
+
+  const responseFacebook = async (response) => {
+    const payload = {
+      name: response.name,
+      profile_image: response.picture.data.url,
+      email: response.email,
+      auth_type: 'facebook',
     };
     const res = await userService.signIn(payload);
     dispatch(login(res.user));
@@ -40,7 +52,7 @@ function Home(props) {
         <p>
           <FacebookLogin
             appId="392101635039578"
-            autoLoad={true}
+            autoLoad
             fields="name,email,picture"
             callback={responseFacebook}
           />
