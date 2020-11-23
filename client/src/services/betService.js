@@ -8,12 +8,12 @@ export default {
   },
 
   getBetsByGameId: async (game_id) => {
-    const res = await axios.get('/api/bets/games/'+ game_id);
+    const res = await axios.get(`/api/bets/games/${game_id}`);
     return res.data || [];
   },
-  
+
   getBetsByUserId: async (user_id) => {
-    const res = await axios.get('/api/bets/users/'+ user_id);
+    const res = await axios.get(`/api/bets/users/${user_id}`);
     return res.data || [];
   },
 
@@ -28,9 +28,9 @@ export default {
   },
 
   updateBet: async (id, user_id, updatedAmount) => {
-    const res = await axios.put('/api/bets/'+ id, {
-        user_id,
-        updatedAmount,
+    const res = await axios.put(`/api/bets/${id}`, {
+      user_id,
+      updatedAmount,
     });
     return res.data || [];
   },
