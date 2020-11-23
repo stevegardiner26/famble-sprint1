@@ -2,14 +2,6 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
   heroku: circleci/heroku@1.2.3 # Invoke the Heroku orb
-
-workflows:
-  node-tests:
-    jobs:
-      - node/test
-      - deploy
-          requires:
-            - node/test
 jobs:
   deploy:
     executor: heroku/default
@@ -20,3 +12,11 @@ jobs:
           # filters:
           #   branches:
           #     only: sequential-branch-filter
+
+workflows:
+  node-test-deploy:
+    jobs:
+      - node/test
+      - deploy:
+          requires:
+            - node/test
