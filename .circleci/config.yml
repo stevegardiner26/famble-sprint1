@@ -9,9 +9,6 @@ jobs:
       - checkout
       - heroku/install
       - heroku/deploy-via-git
-          # filters:
-          #   branches:
-          #     only: sequential-branch-filter
 
 workflows:
   node-test-deploy:
@@ -20,3 +17,6 @@ workflows:
       - deploy:
           requires:
             - node/test
+          filters:
+            branches:
+              only: master
