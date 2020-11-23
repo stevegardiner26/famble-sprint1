@@ -7,8 +7,6 @@ workflows:
   node-tests:
     jobs:
       - node/test
-  heroku_deploy:
-    jobs:
       - deploy
 jobs:
   deploy:
