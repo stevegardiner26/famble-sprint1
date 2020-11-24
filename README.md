@@ -1,4 +1,4 @@
-Heroku Link: [https://famble.herokuapp.com/](https://famble.herokuapp.com/)
+Heroku Link: [https://famble-sprint2.herokuapp.com/](https://famble-sprint2.herokuapp.com/)
 # Famble
 An app that allows people to gamble with no negative consequences.
 
@@ -107,6 +107,4 @@ heroku pg:psql
 - Vivek Sreenivasan - vns9@njit.edu
 - Pedro Ramos - par25@njit.edu
 
-Project Link: [https://github.com/stevegardiner26/famble](https://github.com/stevegardiner26/famble)
-
-Heroku Link: [https://famble.herokuapp.com/](https://famble.herokuapp.com/)
+Project Link: [https://github.com/stevegardiner26/famble-sprint2](https://github.com/stevegardiner26/famble-sprint2)
