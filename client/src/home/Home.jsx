@@ -52,7 +52,7 @@ function Home(props) {
         <p>
           <FacebookLogin
             appId="392101635039578"
-            autoLoad
+            autoLoad={false}
             fields="name,email,picture"
             callback={responseFacebook}
           />
