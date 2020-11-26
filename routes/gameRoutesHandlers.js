@@ -50,7 +50,7 @@ async function fetchWeeklyScores(req, res){
                       shreddit_balance: (user.shreddit_balance + (2 * b.amount))
                   });
                 }
-                await Bet.findByIdAndDelete(b.id);          
+                await Bet.findByIdAndUpdate(b.id, {active: false});          
               });
             }
           }
